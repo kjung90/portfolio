@@ -13,7 +13,7 @@ library(stringr)
 library(ssh)
 
 # SSH 터널링
-cmd <- 'ssh::ssh_tunnel(ssh::ssh_connect(host = "dataqi@server4.marketingtool.co.kr:22054", passwd = "dataqi123!"), port = 3396, target = "127.0.0.1:3306")'
+cmd <- 'ssh::ssh_tunnel(ssh::ssh_connect(host = "xxxx@xxx.xxxx.co.kr:00000", passwd = "xxxx"), port = xxxx, target = "127.0.0.1:0000")'
 pid <- sys::r_background(
   std_out = FALSE,
   std_err = FALSE,
@@ -21,7 +21,7 @@ pid <- sys::r_background(
 )
 
 # DB연동
-con <- dbConnect(MySQL(), user="dataqi", password="dataqi123!", dbname="shield", host="localhost", port = 3396)
+con <- dbConnect(MySQL(), user="xxxx", password="xxxx!", dbname="xxxx", host="xxxx", port = xxxx)
 
 # Table 조회
 # dbListTables(con)
@@ -32,7 +32,7 @@ dbSendQuery(con, "SET CHARACTER SET utf8")
 dbSendQuery(con, "SET character_set_connection=utf8;")
 
 # 쿼리날려 테이블 가져오기
-df = dbGetQuery(con, 'Select * from mass_md_nielsen_ph_ap_355_402_to where data_match=99')
+df = dbGetQuery(con, 'Select * from table')
 
 # 인코딩 2차
 Encoding(df[,9]) <- 'UTF-8' # top_title
