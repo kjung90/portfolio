@@ -2,7 +2,7 @@
 
 
 # SSH 터널링
-cmd <- 'ssh::ssh_tunnel(ssh::ssh_connect(host = "xxx@xxx.co.kr:00000", passwd = "xxxxx"), port = xxxx, target = "000.0.0.0:0000")'
+cmd <- 'ssh::ssh_tunnel(ssh::ssh_connect(host = "xxx@xxx.co.kr:00000", passwd = "xxxx"), port = xxxx, target = "000.0.0.0:0000")'
 pid <- sys::r_background(
   std_out = FALSE,
   std_err = FALSE,
@@ -10,7 +10,7 @@ pid <- sys::r_background(
 )
 
 # DB연동
-con <- dbConnect(MySQL(), user="xxxx", password="xxxx!", dbname="xxxx", host="localhost", port = 0000)
+con <- dbConnect(MySQL(), user="xxxx", password="xxxx", dbname="xxxx", host="localhost", port = 0000)
 
 # Table 조회
 # dbListTables(con)
@@ -21,7 +21,7 @@ dbSendQuery(con, "SET CHARACTER SET utf8")
 dbSendQuery(con, "SET character_set_connection=utf8;")
 
 # 쿼리날려 테이블 가져오기
-df = dbGetQuery(con, 'Select * from xxxx')
+df = dbGetQuery(con, 'Select * from table')
 
 # 인코딩 2차
 Encoding(df[,9]) <- 'UTF-8' # top_title
